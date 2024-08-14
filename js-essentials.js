@@ -28,6 +28,9 @@ console.log(divide(5,3))
 console.log(multiply(5,3))
 
 // 3 - Funcion
+// si llueve, llevar paraguas☂️. si la temperatura
+// es menor a 10 ir en auto🚗, si es mayor a 30 ir de short🩳.
+// si la temperatura es 30 usar lentes 🕶
 
 function dress(temperature, isRaining){
     if (isRaining){
@@ -45,10 +48,6 @@ function dress(temperature, isRaining){
 }
 
 console.log(dress(20, false))
-
-// si llueve, llevar paraguas☂️. si la temperatura
-// es menor a 10 ir en auto🚗, si es mayor a 30 ir de short🩳.
-// si la temperatura es 30 usar lentes 🕶
 
 // 4 - Funcion
 function calculate(operation, firstOperator, secondOperator){
@@ -90,6 +89,13 @@ function finalCountDown(count){
 finalCountDown(10)
 
 // 7 - Funcion
+// It should return the following grade according the score value.
+// 0-40 => D
+// 41-60 => R
+// 61-74 => B
+// 75-84 => BMB
+// 85-96 => MB
+// 97-100 => S
 function getGrade(score) {
     switch (true) {
         case (score >= 0 && score <= 40):
@@ -110,28 +116,40 @@ function getGrade(score) {
 }
 
 console.log(getGrade(50));
-// It should return the following grade according the score value.
-// 0-40 => D
-// 41-60 => R
-// 61-74 => B
-// 75-84 => BMB
-// 85-96 => MB
-// 97-100 => S
 
 // 8 - Funcion
+// cartArticlesCollection: [{article: '👟', amount: 1, price: 25}...])
+// person: {name: 'Pepe', cart: []}
+// it should modify person's cart in order to add the the new collection of articles
 function fillCart(person, articlesCollection){
     person.cart = articlesCollection
     return person
 }
 
 console.log(fillCart({name: 'Pepe', cart: []},[{article: '👟', amount: 1, price: 25}]))
-// cartArticlesCollection: [{article: '👟', amount: 1, price: 25}...])
-// person: {name: 'Pepe', cart: []}
-// it should modify person's cart in order to add the the new collection of articles
 
 // 9 - Funcion
-// countBanana(inventory:['🥑','🍌','🥭', '🍌']})
+function countBanana(inventory){
+    let count = 0
+    for (let i = 0; i < inventory.length; i++) {
+        if (inventory[i] === '🍌') {
+            count++;
+        }
+    }
+    return `Hay una en total ${count} bananas`
+}
+
+console.log(countBanana(['🥑','🍌','🥭', '🍌']))
 
 // 10 - Function
-// getTotal(inventory: [{article: '🍔', price: 15, quantity: '1'}, {article: '🍟', price: 10, quantity: '2'}])
 // it should return the total. for the example data 👆 it should be: 35. (15x1 + 10x2)
+function getTotal(articlesTotal){
+    let total = 0;
+    articlesTotal.forEach(article => {
+        total += article.price * Number(article.quantity);
+    });
+    return "El total del pedido es de: " + total + " pesos" 
+}
+
+console.log(getTotal([{article: '🍔', price: 15, quantity: '1'}, {article: '🍟', price: 10, quantity: '2'}]))
+
